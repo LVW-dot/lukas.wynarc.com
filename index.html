@@ -35,7 +35,7 @@ p { margin: 0; max-width: 64ch; }
 
 /* Hero */
 .hero { background: var(--forest); color: var(--stone); overflow: hidden; }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 24px; align-items: end; padding-top: max(44px, env(safe-area-inset-top)); }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 24px; align-items: end; padding-top: max(44px, env(safe-area-inset-top)); }
 .hero .copy { display: grid; gap: 18px; padding-bottom: 52px; min-width: 0; }
 .hero .label { color: var(--sand); }
 .hero h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 1.02; letter-spacing: -0.01em; }
@@ -54,12 +54,13 @@ p { margin: 0; max-width: 64ch; }
 .btn.solid { background: var(--stone); color: var(--forest); }
 .btn.line { border-color: var(--sand); color: var(--stone); }
 .portrait { position: relative; align-self: end; justify-self: end; width: 100%; max-width: 360px; }
-.portrait svg { position: absolute; left: -18%; right: -40%; bottom: 0; width: 158%; height: auto; }
+/* Wynarc arcs hang from the top edge, facing down, above the portrait column (the card has them rising from the bottom edge) */
+.hero .arcs { position: absolute; top: 0; right: max(20px, env(safe-area-inset-right)); width: min(360px, 37.5%); height: auto; pointer-events: none; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
   .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); gap: 0; }
   .portrait { order: -1; justify-self: start; max-width: 270px; margin-bottom: 4px; }
-  .portrait svg { left: -10%; width: 150%; }
+  .hero .arcs { width: 160px; }
   .hero .copy { padding-bottom: 40px; }
 }
 
@@ -136,15 +137,15 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
         
       </div>
     </div>
+    <svg class="arcs" viewBox="0 0 600 300" aria-hidden="true">
+      <g fill="none" stroke-width="22">
+        <path d="M60 0 A240 240 0 0 0 540 0" stroke="#1E4A3B"/>
+        <path d="M120 0 A180 180 0 0 0 480 0" stroke="#1E4A3B"/>
+        <path d="M180 0 A120 120 0 0 0 420 0" stroke="#1E4A3B"/>
+        <path d="M240 0 A60 60 0 0 0 360 0" stroke="#FF2E7E"/>
+      </g>
+    </svg>
     <div class="portrait">
-      <svg viewBox="0 0 600 300" aria-hidden="true">
-        <g fill="none" stroke-width="22">
-          <path d="M60 300 A240 240 0 0 1 540 300" stroke="#1E4A3B"/>
-          <path d="M120 300 A180 180 0 0 1 480 300" stroke="#1E4A3B"/>
-          <path d="M180 300 A120 120 0 0 1 420 300" stroke="#1E4A3B"/>
-          <path d="M240 300 A60 60 0 0 1 360 300" stroke="#FF2E7E"/>
-        </g>
-      </svg>
       <img src="lukas.png" width="600" height="600" alt="Portrait of Lukas Weigel">
     </div>
   </div>
