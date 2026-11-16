@@ -43,6 +43,12 @@ p { margin: 0; max-width: 64ch; }
 .hero .sub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: var(--sand); margin-top: -6px; }
 .hero .sub .bar { width: 1px; height: 1.1em; background: var(--sand); }
 .hero .lede { font-size: 1.1rem; color: var(--stone); max-width: 40ch; }
+/* Phone and email, the phone set like the card number */
+.reach { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+.reach a { text-decoration: none; color: var(--stone); border-bottom: 1px solid var(--pine); padding-bottom: 2px; }
+.reach a:hover { border-color: var(--sand); }
+.reach .tel { font-family: var(--f-display); font-stretch: 125%; font-weight: 500; font-size: 1.25rem; letter-spacing: 0.04em; white-space: nowrap; }
+.reach .mail { font-size: 1rem; overflow-wrap: anywhere; }
 .facts { display: flex; flex-wrap: wrap; gap: 8px; }
 .facts span { font-size: 0.8rem; border: 1px solid var(--pine); color: var(--sand); padding: 4px 10px; border-radius: 4px; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -114,6 +120,10 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
       <h1>Lukas Weigel</h1>
       <div class="label sub"><span>Singapore based</span><span class="bar" aria-hidden="true"></span><span>No EP required</span></div>
       <p class="lede">Eight years originating, structuring and negotiating brand partnerships, selling into fintech, crypto, banking, cloud and consumer tech. Now moving <span class="nw">in-house</span>.</p>
+      <div class="reach">
+        <a class="tel" href="tel:+6589506244">+65 8950 6244</a>
+        <a class="mail" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">lukasvweigel@gmail.com</a>
+      </div>
       <div class="facts">
         <span>English and German</span>
       </div>
@@ -186,7 +196,8 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
       
     </div>
     <div class="contact-lines">
-      <span>lukasvweigel@gmail.com</span>
+      <a href="tel:+6589506244">+65 8950 6244</a>
+      <a href="mailto:lukasvweigel@gmail.com">lukasvweigel@gmail.com</a>
       <span>linkedin.com/in/lukas-v-weigel · full career history</span>
     </div>
   </div>
