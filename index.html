@@ -77,6 +77,8 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .skills div { background: var(--surface); border: 1px solid var(--hair); border-radius: 8px; padding: 18px 20px; display: grid; gap: 6px; align-content: start; }
 .skills h3 { font-family: var(--f-body); font-stretch: 100%; font-size: 1rem; font-weight: 500; }
 .skills p { color: var(--muted); font-size: 0.95rem; }
+.skills p span { display: block; white-space: nowrap; } /* one skill per line, never split */
+.nw { white-space: nowrap; } /* keep hyphenated words like "in-house" on one line */
 @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
 
 /* What I'd bring */
@@ -139,7 +141,7 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
     <div class="head"><div class="rule"></div><div class="label">Selected deals</div><h2>What I've closed</h2></div>
     <p class="intro">About 30 accounts across fintech, crypto, banking, cloud and consumer tech. A few of them:</p>
     <ul class="deals">
-      <li><div><div class="label">Crypto</div><h3>Coinbase</h3></div><span class="val">$360K · 10× new users</span><p>Originated and closed an industry-first partnership with the Nike Melbourne Marathon, built around an NFT integration.</p></li>
+      <li><div><div class="label">Crypto</div><h3>Coinbase</h3></div><span class="val">$360K · 10x new users</span><p>Originated and closed an industry-first partnership with the Nike Melbourne Marathon, built around an NFT integration.</p></li>
       <li><div><div class="label">Technology</div><h3>NTT DATA</h3></div><span class="val">€2.8M · 5 years</span><p>Led the full negotiation of the largest partnership in BMW's golf portfolio, bringing real-time data and AI-driven analytics into BMW's client experience.</p></li>
       <li><div><div class="label">Health insurance</div><h3>Cigna Healthcare</h3></div><span class="val">$350K · 3 years</span><p>A three-year title partnership with HYROX, structured from proposition through execution.</p></li>
       <li><div><div class="label">Consumer tech</div><h3>Grab</h3></div><span class="val">1 year · Singapore</span><p>Structured a one-year World Rugby partnership for the Singapore market.</p></li>
@@ -152,10 +154,10 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
   <section class="wrap" id="skills">
     <div class="head"><div class="label">Core skills</div><h2>Where I add value</h2></div>
     <div class="skills">
-      <div><h3>Strategic partnerships</h3><p>Origination&nbsp;· Deal structuring&nbsp;· Complex negotiation</p></div>
-      <div><h3>Market development</h3><p>APAC go-to-market&nbsp;· Market entry&nbsp;· Proposition design</p></div>
-      <div><h3>Commercial leadership</h3><p>P&amp;L ownership&nbsp;· Revenue growth&nbsp;· C-suite relationships</p></div>
-      <div><h3>Emerging technology</h3><p>Digital assets and Web3&nbsp;· Applied AI&nbsp;· AI-enabled workflows</p></div>
+      <div><h3>Strategic partnerships</h3><p><span>Origination</span><span>Deal structuring</span><span>Complex negotiation</span></p></div>
+      <div><h3>Market development</h3><p><span>APAC go-to-market</span><span>Market entry</span><span>Proposition design</span></p></div>
+      <div><h3>Commercial leadership</h3><p><span>P&amp;L ownership</span><span>Revenue growth</span><span>C-suite relationships</span></p></div>
+      <div><h3>Emerging technology</h3><p><span>Digital assets and Web3</span><span>Applied AI</span><span>AI-enabled workflows</span></p></div>
     </div>
   </section>
 
@@ -172,7 +174,7 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
 <section class="looking" id="contact">
   <div class="wrap">
     <div class="label">What I'm looking for</div>
-    <h2>Brand and strategic partnerships, in-house at a fintech or crypto company.</h2>
+    <h2>Brand and strategic partnerships, <span class="nw">in-house</span> at a fintech or crypto company.</h2>
     <p>Director level, based in Singapore with an APAC remit. If you're building that team, or know who is, I'd like 20 minutes.</p>
     <div class="actions">
       <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
