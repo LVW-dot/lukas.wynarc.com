@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lukas Weigel · Commercial Partnerships Director APAC</title>
-<meta name="description" content="Commercial Partnerships Director APAC. Singapore based, no EP required. 10+ years of international experience, working with brands in the banking, insurance, fintech and crypto space. Moving in-house to brand and strategic partnerships at a fintech or crypto company.">
+<meta name="description" content="Commercial Partnerships Director APAC. Singapore based, no EP required. 10+ years of international experience, working with brands in the banking, insurance, fintech and crypto space. Now looking to lead brand and strategic partnerships, ideally at a fintech, crypto or technology company.">
 <meta property="og:title" content="Lukas Weigel · Commercial Partnerships Director APAC">
-<meta property="og:description" content="Singapore based, no EP required. Deals with Coinbase, NTT DATA and Cigna. Moving in-house to brand and strategic partnerships at a fintech or crypto company.">
+<meta property="og:description" content="Singapore based, no EP required. Deals with Coinbase, NTT DATA and Cigna. Now looking to lead brand and strategic partnerships, ideally at a fintech, crypto or technology company.">
 <meta property="og:image" content="https://lukas.wynarc.com/og.jpg">
 <meta property="og:url" content="https://lukas.wynarc.com/">
 <meta property="og:type" content="profile">
@@ -34,7 +34,7 @@ h1, h2, h3 { font-family: var(--f-display); font-stretch: 125%; font-weight: 500
 p { margin: 0; max-width: 64ch; }
 
 /* Hero */
-.hero { background: var(--forest); color: var(--stone); overflow: hidden; }
+.hero { position: relative; background: var(--forest); color: var(--stone); overflow: hidden; }
 .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 0 24px; align-items: end; padding-top: max(44px, env(safe-area-inset-top)); }
 .hero .copy { display: grid; gap: 18px; padding-bottom: 36px; min-width: 0; }
 .hero .label { color: var(--sand); }
@@ -57,15 +57,16 @@ p { margin: 0; max-width: 64ch; }
 .btn.line { border-color: var(--sand); color: var(--stone); }
 /* margin-top keeps the head clear of the arcs hanging above it */
 .portrait { position: relative; align-self: end; justify-self: end; width: 100%; max-width: 320px; margin-top: 150px; }
-/* Wynarc arcs hang from the top edge, facing down, above the portrait column (the card has them rising from the bottom edge) */
-.hero .arcs { position: absolute; top: 0; right: max(20px, env(safe-area-inset-right)); width: min(300px, 31%); height: auto; pointer-events: none; }
+/* Wynarc arcs in the top-right corner, facing down: the card's bottom-right arcs turned over, same proportions.
+   --r is the outer radius. The centre sits 0.355 x --r in from the right edge, as on the card, so the outer three
+   arcs run off the side and the header (overflow: hidden) cuts them. */
+.hero .arcs { --r: clamp(80px, 16vw, 230px); position: absolute; top: 0; right: calc(var(--r) * -0.688); width: calc(var(--r) * 2.085); height: auto; pointer-events: none; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
   /* One column; the summary sits right under "Singapore based | No EP required", before phone and email */
   .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); padding-bottom: 40px; gap: 18px 0; }
   .hero .copy { display: contents; }
   .portrait { order: -1; justify-self: start; max-width: 270px; margin-top: 0; margin-bottom: -14px; }
-  .hero .arcs { width: 160px; }
   .hero .summary { order: 1; border-top: 0; padding-block: 0; }
   .hero .lede { font-size: 1.1rem; }
   .hero .reach, .hero .actions { order: 2; }
@@ -93,17 +94,18 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .skills h3 { font-family: var(--f-body); font-stretch: 100%; font-size: 1rem; font-weight: 500; }
 .skills p { color: var(--muted); font-size: 0.95rem; }
 .skills p span { display: block; white-space: nowrap; } /* one skill per line, never split */
-.nw { white-space: nowrap; } /* keep hyphenated words like "in-house" on one line */
+.nw { white-space: nowrap; } /* keep a short phrase on one line */
 @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
 
 /* Personal */
 .personal { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--forest); }
 .personal li { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 4px 24px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
 .personal .label { color: var(--muted); font-size: 0.68rem; padding-top: 5px; }
+.personal li > span:last-child { max-width: 62ch; }
 @media (max-width: 560px) { .personal li { grid-template-columns: 1fr; } }
 
 /* What I'd bring */
-.pitch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; border-top: 1px solid var(--hair); padding-top: 22px; }
+.pitch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; border-top: 1px solid var(--hair); padding-top: 22px; }
 .pitch div { display: grid; gap: 8px; align-content: start; }
 .pitch h3 { font-size: 1.08rem; }
 .pitch p { color: var(--muted); font-size: 0.96rem; }
@@ -126,6 +128,14 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
 <body>
 
 <header class="hero">
+  <svg class="arcs" viewBox="0 0 58.8 29.4" aria-hidden="true">
+    <g fill="none" stroke-width="2.4">
+      <path d="M1.2 0 A28.2 28.2 0 0 0 57.6 0" stroke="#1E4A3B"/>
+      <path d="M8.8 0 A20.6 20.6 0 0 0 50 0" stroke="#1E4A3B"/>
+      <path d="M16.4 0 A13 13 0 0 0 42.4 0" stroke="#1E4A3B"/>
+      <path d="M23.8 0 A5.6 5.6 0 0 0 35 0" stroke="#FF2E7E"/>
+    </g>
+  </svg>
   <div class="wrap">
     <div class="copy">
       <div class="label">Commercial Partnerships Director APAC</div>
@@ -143,19 +153,11 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
         
       </div>
     </div>
-    <svg class="arcs" viewBox="0 0 600 300" aria-hidden="true">
-      <g fill="none" stroke-width="22">
-        <path d="M60 0 A240 240 0 0 0 540 0" stroke="#1E4A3B"/>
-        <path d="M120 0 A180 180 0 0 0 480 0" stroke="#1E4A3B"/>
-        <path d="M180 0 A120 120 0 0 0 420 0" stroke="#1E4A3B"/>
-        <path d="M240 0 A60 60 0 0 0 360 0" stroke="#FF2E7E"/>
-      </g>
-    </svg>
     <div class="portrait">
       <img src="lukas.png" width="600" height="600" alt="Portrait of Lukas Weigel">
     </div>
     <div class="summary">
-      <p class="lede">Former professional basketball player turned commercial partnerships leader, with 10+ years of international experience across APAC and Europe. I've owned a P&amp;L, grown a regional portfolio, and built partnerships with fintech, banking, insurance, crypto and technology brands, from first pitch through to delivery. Now moving <span class="nw">in-house</span>.</p>
+      <p class="lede">Former professional basketball player turned commercial partnerships leader. Over the past decade, I've built commercial relationships across APAC and Europe, negotiated partnerships with companies including NTT DATA, Coinbase, Cigna and Grab, and owned a €2.5M business P&amp;L. Now I want to build that value from inside a business, ideally at a fintech, crypto or technology company.</p>
     </div>
   </div>
 </header>
@@ -171,32 +173,40 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
     </div>
   </section>
 
+  <section class="wrap" id="how">
+    <div class="head"><div class="label">How I work</div><h2>What makes a partnership work</h2></div>
+    <div class="pitch">
+      <div><h3>Start with what both sides need</h3><p>A good partnership gives each side something it couldn't get alone. For Coinbase and the Nike Melbourne Marathon, that was an NFT integration I came up with. It drove a 10x increase in new user acquisition.</p></div>
+      <div><h3>Know the other side of the table</h3><p>I've negotiated for properties like the NBA, Formula 1 and HYROX, so I know what a property will give if you push, where the value hides in a contract, and which assets actually move a brand's numbers.</p></div>
+      <div><h3>Bring the right people together</h3><p>Big partnerships rarely rest on one relationship. I've worked with senior teams at WPP, Omnicom, Publicis and Hakuhodo, and as Global Category Lead for Crypto &amp; Blockchain I advised teams in other markets on their propositions.</p></div>
+      <div><h3>The signature is the start</h3><p>What counts is what the partnership delivers. I delivered the BMW International Open end to end, and ran on-site marketing for FIBA's partners at the 2023 Basketball World Cup in Manila.</p></div>
+    </div>
+  </section>
+
   <section class="wrap" id="deals">
-    <div class="head"><div class="label">Selected deals</div><h2>What I've closed</h2></div>
-    <p class="intro">About 30 accounts across fintech, crypto, banking, cloud and consumer tech. A few of them:</p>
+    <div class="head"><div class="label">Selected partnerships</div><h2>A few I'm proud of</h2></div>
+    <p class="intro">About 30 accounts across fintech, crypto, banking, cloud and consumer tech. Five that show the range:</p>
     <ul class="deals">
-      <li><div><div class="label">Crypto</div><h3>Coinbase</h3></div><span class="val">$360K · 10x new users</span><p>Originated and closed an industry-first partnership with the Nike Melbourne Marathon, built around an NFT integration.</p></li>
+      <li><div><div class="label">Crypto</div><h3>Coinbase</h3></div><span class="val">$360K · 10x new users</span><p>An industry-first partnership with the Nike Melbourne Marathon, which I originated and closed.</p></li>
       <li><div><div class="label">Technology</div><h3>NTT DATA</h3></div><span class="val">€2.8M · 5 years</span><p>Led the full negotiation of the largest partnership in BMW's golf portfolio, bringing real-time data and AI-driven analytics into BMW's client experience.</p></li>
       <li><div><div class="label">Health insurance</div><h3>Cigna Healthcare</h3></div><span class="val">$350K · 3 years</span><p>A three-year title partnership with HYROX, structured from proposition through execution.</p></li>
       <li><div><div class="label">Consumer tech</div><h3>Grab</h3></div><span class="val">1 year · Singapore</span><p>Structured a one-year World Rugby partnership for the Singapore market.</p></li>
-      <li><div><div class="label">Automotive</div><h3>BMW</h3></div><span class="val">€2.5M P&amp;L</span><p>Owned the P&amp;L for BMW's golf events and beat the annual revenue target, with quarterly business reviews with BMW Marketing.</p></li>
+      <li><div><div class="label">Automotive</div><h3>BMW</h3></div><span class="val">€2.5M business P&amp;L</span><p>Owned the P&amp;L for BMW's golf events, beat the annual revenue target, and reviewed performance with BMW Marketing every quarter.</p></li>
     </ul>
   </section>
 
   
 
-  <section class="wrap" id="why">
-    <div class="head"><div class="label">Why in-house</div><h2>What I'd bring to your partnerships team</h2></div>
-    <div class="pitch">
-      <div><h3>The seller's playbook</h3><p>Eight years on the selling side. I know what a property will give if you push, where the value hides in a contract, and which assets actually move your numbers.</p></div>
-      <div><h3>Fintech and crypto, from the outside in</h3><p>I've sold into fintech, banking, crypto, cloud and consumer tech, with clients including Coinbase, Alibaba Cloud and Grab. Global Category Lead for Crypto &amp; Blockchain, with senior relationships across WPP, Omnicom, Publicis and Hakuhodo.</p></div>
-      <div><h3>I build with AI</h3><p>I've built and deployed two AI-coded websites and developed my own AI agents for personal and professional work. Hands-on with AI tools and rapid prototyping.</p></div>
-    </div>
-  </section>
 
   <section class="wrap" id="personal">
-    <div class="head"><div class="label">Personal</div></div>
+    <div class="head"><div class="label">Personal</div><h2>Off the clock</h2></div>
     <ul class="personal">
+      <li><span class="label">Basketball</span><span>Four years as a professional in Germany's ProA and ProB leagues, from 2013 to 2017, including time as team captain. Before that, a basketball scholarship in the US, where I graduated cum laude. It's where I learned discipline, resilience and how to lead a cross-cultural team under pressure.</span></li>
+      <li><span class="label">Endurance</span><span>Long-distance triathlete and HYROX Pro competitor. HYROX is also a sport I've worked on: I secured its first partnerships in APAC.</span></li>
+      <li><span class="label">Outdoors</span><span>I love the mountains. Certified sailor and avid golfer.</span></li>
+      <li><span class="label">AI</span><span>I build my own AI agents for research, writing, scheduling and workflow automation. This page, and the card that brought you here, were built with AI too.</span></li>
+      <li><span class="label">Also</span><span>History buff.</span></li>
+      <li><span class="label">Lived in</span><span>Germany, the US and Singapore</span></li>
       <li><span class="label">Languages</span><span>English and German</span></li>
     </ul>
   </section>
@@ -204,9 +214,9 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
 
 <section class="looking" id="contact">
   <div class="wrap">
-    <div class="label">What I'm looking for</div>
-    <h2>Brand and strategic partnerships, <span class="nw">in-house</span> at a fintech or crypto company.</h2>
-    <p>Director level, based in Singapore with an APAC remit. If you're building that team, or know who is, I'd like 20 minutes.</p>
+    <div class="label">What's next</div>
+    <h2>Brand and strategic partnerships in fintech, crypto, tech and beyond.</h2>
+    <p>Director level, based in Singapore with an APAC remit. Whether we met at Singapore FinTech Festival or someone sent you this page, I'd be glad to keep the conversation going.</p>
     <div class="actions">
       <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
       <a class="btn line" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
