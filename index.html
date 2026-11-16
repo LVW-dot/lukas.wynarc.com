@@ -35,14 +35,16 @@ p { margin: 0; max-width: 64ch; }
 
 /* Hero */
 .hero { background: var(--forest); color: var(--stone); overflow: hidden; }
-.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 24px; align-items: end; padding-top: max(44px, env(safe-area-inset-top)); }
-.hero .copy { display: grid; gap: 18px; padding-bottom: 52px; min-width: 0; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 0 24px; align-items: end; padding-top: max(44px, env(safe-area-inset-top)); }
+.hero .copy { display: grid; gap: 18px; padding-bottom: 36px; min-width: 0; }
 .hero .label { color: var(--sand); }
 .hero h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 1.02; letter-spacing: -0.01em; }
 /* Same line as under the name on the card: "Singapore based | No EP required" */
 .hero .sub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; color: var(--sand); margin-top: -6px; }
 .hero .sub .bar { width: 1px; height: 1.1em; background: var(--sand); }
-.hero .lede { font-size: 1.1rem; color: var(--stone); max-width: 40ch; }
+/* Summary runs the full width of the page, under the name and photo */
+.hero .summary { grid-column: 1 / -1; border-top: 1px solid var(--pine); padding-block: 24px 52px; }
+.hero .lede { font-size: 1.15rem; color: var(--stone); max-width: none; }
 /* Phone and email, the phone set like the card number */
 .reach { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
 .reach a { text-decoration: none; color: var(--stone); border-bottom: 1px solid var(--pine); padding-bottom: 2px; }
@@ -53,15 +55,20 @@ p { margin: 0; max-width: 64ch; }
 .btn { font-family: var(--f-body); font-weight: 500; font-size: 0.95rem; text-decoration: none; padding: 11px 16px; border-radius: 4px; border: 1px solid transparent; display: inline-flex; align-items: center; }
 .btn.solid { background: var(--stone); color: var(--forest); }
 .btn.line { border-color: var(--sand); color: var(--stone); }
-.portrait { position: relative; align-self: end; justify-self: end; width: 100%; max-width: 360px; }
+/* margin-top keeps the head clear of the arcs hanging above it */
+.portrait { position: relative; align-self: end; justify-self: end; width: 100%; max-width: 320px; margin-top: 150px; }
 /* Wynarc arcs hang from the top edge, facing down, above the portrait column (the card has them rising from the bottom edge) */
-.hero .arcs { position: absolute; top: 0; right: max(20px, env(safe-area-inset-right)); width: min(360px, 37.5%); height: auto; pointer-events: none; }
+.hero .arcs { position: absolute; top: 0; right: max(20px, env(safe-area-inset-right)); width: min(300px, 31%); height: auto; pointer-events: none; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
-  .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); gap: 0; }
-  .portrait { order: -1; justify-self: start; max-width: 270px; margin-bottom: 4px; }
+  /* One column; the summary sits right under "Singapore based | No EP required", before phone and email */
+  .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); padding-bottom: 40px; gap: 18px 0; }
+  .hero .copy { display: contents; }
+  .portrait { order: -1; justify-self: start; max-width: 270px; margin-top: 0; margin-bottom: -14px; }
   .hero .arcs { width: 160px; }
-  .hero .copy { padding-bottom: 40px; }
+  .hero .summary { order: 1; border-top: 0; padding-block: 0; }
+  .hero .lede { font-size: 1.1rem; }
+  .hero .reach, .hero .actions { order: 2; }
 }
 
 section { padding-block: 60px 4px; }
@@ -124,7 +131,6 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
       <div class="label">Commercial Partnerships Director APAC</div>
       <h1>Lukas Weigel</h1>
       <div class="label sub"><span>Singapore based</span><span class="bar" aria-hidden="true"></span><span>No EP required</span></div>
-      <p class="lede">Former professional basketball player turned commercial partnerships leader, with 10+ years of international experience across APAC and Europe. I've owned a P&amp;L, grown a regional portfolio and sold partnerships to fintech, banking, insurance, crypto and technology brands. Now moving <span class="nw">in-house</span>.</p>
       <div class="reach">
         <a class="tel" href="tel:+6589506244">+65 8950 6244</a>
         <a class="mail" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">lukasvweigel@gmail.com</a>
@@ -147,6 +153,9 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
     </svg>
     <div class="portrait">
       <img src="lukas.png" width="600" height="600" alt="Portrait of Lukas Weigel">
+    </div>
+    <div class="summary">
+      <p class="lede">Former professional basketball player turned commercial partnerships leader, with 10+ years of international experience across APAC and Europe. I've owned a P&amp;L, grown a regional portfolio and sold partnerships to fintech, banking, insurance, crypto and technology brands. Now moving <span class="nw">in-house</span>.</p>
     </div>
   </div>
 </header>
