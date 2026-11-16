@@ -25,7 +25,7 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--stone); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; } /* height: auto keeps the photo square at any width */
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 .wrap { max-width: 960px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
@@ -60,7 +60,7 @@ p { margin: 0; max-width: 64ch; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
   .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); gap: 0; }
-  .portrait { order: -1; justify-self: start; max-width: 220px; margin-bottom: 4px; }
+  .portrait { order: -1; justify-self: start; max-width: 270px; margin-bottom: 4px; }
   .portrait svg { left: -10%; width: 150%; }
   .hero .copy { padding-bottom: 40px; }
 }
