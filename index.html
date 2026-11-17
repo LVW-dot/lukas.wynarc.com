@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lukas Weigel · Commercial Partnerships Director APAC</title>
-<meta name="description" content="Commercial Partnerships Director APAC. Singapore based, no EP required. 10+ years of international experience, working with brands in the banking, insurance, fintech and crypto space. Now looking to lead brand and strategic partnerships, ideally at a fintech, crypto or technology company.">
-<meta property="og:title" content="Lukas Weigel · Commercial Partnerships Director APAC">
-<meta property="og:description" content="Singapore based, no EP required. Deals with Coinbase, NTT DATA and Cigna. Now looking to lead brand and strategic partnerships, ideally at a fintech, crypto or technology company.">
+<title>Lukas Weigel · Strategic Partnerships &amp; Commercial Growth · APAC</title>
+<meta name="description" content="Strategic Partnerships &amp; Commercial Growth · APAC. Former professional basketball player, commercial partnerships leader and curious builder, based in Singapore. Partnerships with Coinbase, NTT DATA, Grab and HYROX.">
+<meta property="og:title" content="Lukas Weigel · Strategic Partnerships &amp; Commercial Growth · APAC">
+<meta property="og:description" content="Former professional basketball player, commercial partnerships leader and curious builder. Partnerships with Coinbase, NTT DATA, Grab and HYROX.">
 <meta property="og:image" content="https://lukas.wynarc.com/og.jpg">
 <meta property="og:url" content="https://lukas.wynarc.com/">
 <meta property="og:type" content="profile">
@@ -45,6 +45,12 @@ p { margin: 0; max-width: 64ch; }
 /* Summary runs the full width of the page, under the name and photo */
 .hero .summary { grid-column: 1 / -1; border-top: 1px solid var(--pine); padding-block: 24px 52px; }
 .hero .lede { font-size: 1.15rem; color: var(--stone); max-width: none; }
+.hero .lede + .lede { margin-top: 12px; }
+/* "Former professional basketball player. Commercial partnerships leader. Curious builder.", one sentence per line */
+.tagline { font-family: var(--f-display); font-stretch: 125%; font-weight: 500; font-size: 1.05rem; line-height: 1.4; color: var(--stone); }
+.tagline span { display: block; }
+/* The wide heading font draws "×" as a small star; use the text font for it */
+.x { font-family: var(--f-body); font-stretch: 100%; font-weight: 400; }
 /* Phone and email, the phone set like the card number */
 .reach { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
 .reach a { text-decoration: none; color: var(--stone); border-bottom: 1px solid var(--pine); padding-bottom: 2px; }
@@ -63,13 +69,14 @@ p { margin: 0; max-width: 64ch; }
 .hero .arcs { --r: clamp(80px, 16vw, 230px); position: absolute; top: 0; right: calc(var(--r) * -0.688); width: calc(var(--r) * 2.085); height: auto; pointer-events: none; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
-  /* One column; the summary sits right under "Singapore based | No EP required", before phone and email */
+  /* One column: photo, name, then phone, email and buttons straight away, then the summary */
   .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); padding-bottom: 40px; gap: 18px 0; }
   .hero .copy { display: contents; }
   .portrait { order: -1; justify-self: start; max-width: 270px; margin-top: 0; margin-bottom: -14px; }
-  .hero .summary { order: 1; border-top: 0; padding-block: 0; }
+  .hero .summary { order: 2; border-top: 0; padding-block: 4px 0; }
   .hero .lede { font-size: 1.1rem; }
-  .hero .reach, .hero .actions { order: 2; }
+  .tagline { font-size: 0.94rem; }
+  .hero .reach, .hero .actions { order: 1; }
 }
 
 section { padding-block: 60px 4px; }
@@ -84,9 +91,9 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .deals li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--hair); }
 .deals .label { color: var(--muted); font-size: 0.68rem; }
 .deals h3 { font-size: 1.1rem; margin-top: 2px; }
-.deals .val { font-family: var(--f-display); font-stretch: 125%; font-size: 0.95rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 18px; }
+.deals .val { font-family: var(--f-display); font-stretch: 125%; font-size: 0.95rem; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 4px; }
 .deals p { grid-column: 1 / -1; color: var(--muted); font-size: 0.96rem; }
-@media (max-width: 560px) { .deals li { grid-template-columns: 1fr; } .deals .val { text-align: left; padding-top: 0; } }
+@media (max-width: 560px) { .deals li { grid-template-columns: 1fr; } .deals .val { text-align: left; padding-top: 0; white-space: normal; } }
 
 /* Core skills */
 .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -95,9 +102,17 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .skills p { color: var(--muted); font-size: 0.95rem; }
 .skills p span { display: block; white-space: nowrap; } /* one skill per line, never split */
 .nw { white-space: nowrap; } /* keep a short phrase on one line */
+.skills.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skills.three h3 { font-family: var(--f-display); font-stretch: 125%; font-size: 1rem; line-height: 1.3; }
+@media (max-width: 760px) { .skills.three { grid-template-columns: 1fr; } }
 @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
 
 /* Personal */
+.why p { max-width: 62ch; font-size: 1.05rem; }
+.why p + p { margin-top: 12px; }
+/* Off the clock: short paragraphs with a bold lead-in */
+.personal.prose li { display: block; }
+.personal.prose b { font-weight: 500; }
 .personal { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--forest); }
 .personal li { display: grid; grid-template-columns: minmax(0, 12rem) minmax(0, 1fr); gap: 4px 24px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
 .personal .label { color: var(--muted); font-size: 0.68rem; padding-top: 5px; }
@@ -105,7 +120,7 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 @media (max-width: 560px) { .personal li { grid-template-columns: 1fr; } }
 
 /* What I'd bring */
-.pitch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; border-top: 1px solid var(--hair); padding-top: 22px; }
+.pitch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; border-top: 1px solid var(--hair); padding-top: 22px; }
 .pitch div { display: grid; gap: 8px; align-content: start; }
 .pitch h3 { font-size: 1.08rem; }
 .pitch p { color: var(--muted); font-size: 0.96rem; }
@@ -117,7 +132,6 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .looking { background: var(--forest); color: var(--stone); margin-top: 72px; position: relative; overflow: hidden; }
 .looking .wrap { position: relative; padding-block: 52px 56px; display: grid; gap: 18px; }
 .looking .label { color: var(--sand); }
-.looking h2 { max-width: 24ch; }
 .looking p { color: var(--sand); }
 .contact-lines { display: grid; gap: 4px; font-size: 0.92rem; color: var(--sand); }
 .contact-lines a { color: var(--stone); text-decoration-color: var(--pine); text-underline-offset: 3px; }
@@ -138,13 +152,10 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
   </svg>
   <div class="wrap">
     <div class="copy">
-      <div class="label">Commercial Partnerships Director APAC</div>
+      <div class="label">Strategic Partnerships &amp; Commercial Growth · APAC</div>
       <h1>Lukas Weigel</h1>
       <div class="label sub"><span>Singapore based</span><span class="bar" aria-hidden="true"></span><span>No EP required</span></div>
-      <div class="reach">
-        <a class="tel" href="tel:+6589506244">+65 8950 6244</a>
-        <a class="mail" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">lukasvweigel@gmail.com</a>
-      </div>
+      <p class="tagline"><span>Former professional basketball player.</span> <span>Commercial partnerships leader.</span> <span>Curious builder.</span></p>
       <div class="actions">
         <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
         <a class="btn line" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
@@ -157,66 +168,60 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
       <img src="lukas.png" width="600" height="600" alt="Portrait of Lukas Weigel">
     </div>
     <div class="summary">
-      <p class="lede">Former professional basketball player turned commercial partnerships leader. Over the past decade, I've built commercial relationships across APAC and Europe, negotiated partnerships with companies including NTT DATA, Coinbase, Cigna and Grab, and owned a €2.5M business P&amp;L. Now I want to build that value from inside a business, ideally at a fintech, crypto or technology company.</p>
+      <p class="lede">Over the past decade, I've built commercial partnerships across APAC and Europe, developed new markets and propositions, and negotiated complex, multi-year agreements across financial services, technology and consumer sectors.</p>
+      <p class="lede">Real partnership value goes beyond getting a deal signed. It's about understanding what matters to both sides, finding the right commercial model and staying involved to make sure it delivers. That's the experience I now want to bring into fintech and technology, closer to the product, customers and decisions that shape growth.</p>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="wrap" id="skills">
-    <div class="head"><div class="rule"></div><div class="label">Core skills</div><h2>Where I add value</h2></div>
-    <div class="skills">
-      <div><h3>Strategic partnerships</h3><p><span>Origination</span><span>Deal structuring</span><span>Complex negotiation</span></p></div>
-      <div><h3>Market development</h3><p><span>APAC go-to-market</span><span>Market entry</span><span>Proposition design</span></p></div>
-      <div><h3>Commercial leadership</h3><p><span>P&amp;L ownership</span><span>Revenue growth</span><span>C-suite relationships</span></p></div>
-      <div><h3>Emerging technology</h3><p><span>Digital assets and Web3</span><span>Applied AI</span><span>AI-enabled workflows</span></p></div>
-    </div>
-  </section>
-
   <section class="wrap" id="how">
-    <div class="head"><div class="label">How I work</div><h2>What makes a partnership work</h2></div>
+    <div class="head"><div class="rule"></div><h2>How I work</h2></div>
     <div class="pitch">
-      <div><h3>Start with what both sides need</h3><p>A good partnership gives each side something it couldn't get alone. For Coinbase and the Nike Melbourne Marathon, that was an NFT integration I came up with. It drove a 10x increase in new user acquisition.</p></div>
-      <div><h3>Know the other side of the table</h3><p>I've negotiated for properties like the NBA, Formula 1 and HYROX, so I know what a property will give if you push, where the value hides in a contract, and which assets actually move a brand's numbers.</p></div>
-      <div><h3>Bring the right people together</h3><p>Big partnerships rarely rest on one relationship. I've worked with senior teams at WPP, Omnicom, Publicis and Hakuhodo, and as Global Category Lead for Crypto &amp; Blockchain I advised teams in other markets on their propositions.</p></div>
-      <div><h3>The signature is the start</h3><p>What counts is what the partnership delivers. I delivered the BMW International Open end to end, and ran on-site marketing for FIBA's partners at the 2023 Basketball World Cup in Manila.</p></div>
+      <div><h3>I look beyond the obvious opportunity</h3><p>Whether it's entering a new market, reaching a different audience or developing something that hasn't been done before, I like challenging conventional approaches and finding commercial opportunities worth pursuing.</p></div>
+      <div><h3>I bring different worlds together</h3><p>I've worked between global brands, technology companies, rights holders and agencies, often with competing priorities. I know when to push, when to compromise and how to turn different interests into a workable agreement.</p></div>
+      <div><h3>I'm as involved in execution as I am in strategy</h3><p>I've managed the BMW International Open end to end and worked on-site with partners at the FIBA Basketball World Cup. I like being close to the action, solving problems and seeing ideas through to delivery.</p></div>
     </div>
   </section>
 
   <section class="wrap" id="deals">
-    <div class="head"><div class="label">Selected partnerships</div><h2>A few I'm proud of</h2></div>
-    <p class="intro">About 30 accounts across fintech, crypto, banking, cloud and consumer tech. Five that show the range:</p>
+    <div class="head"><h2>Track record</h2></div>
+    <p class="intro">A few partnerships and commercial milestones I'm proud of.</p>
     <ul class="deals">
-      <li><div><div class="label">Crypto</div><h3>Coinbase</h3></div><span class="val">$360K · 10x new users</span><p>An industry-first partnership with the Nike Melbourne Marathon, which I originated and closed.</p></li>
-      <li><div><div class="label">Technology</div><h3>NTT DATA</h3></div><span class="val">€2.8M · 5 years</span><p>Led the full negotiation of the largest partnership in BMW's golf portfolio, bringing real-time data and AI-driven analytics into BMW's client experience.</p></li>
-      <li><div><div class="label">Health insurance</div><h3>Cigna Healthcare</h3></div><span class="val">$350K · 3 years</span><p>A three-year title partnership with HYROX, structured from proposition through execution.</p></li>
-      <li><div><div class="label">Consumer tech</div><h3>Grab</h3></div><span class="val">1 year · Singapore</span><p>Structured a one-year World Rugby partnership for the Singapore market.</p></li>
-      <li><div><div class="label">Automotive</div><h3>BMW</h3></div><span class="val">€2.5M business P&amp;L</span><p>Owned the P&amp;L for BMW's golf events, beat the annual revenue target, and reviewed performance with BMW Marketing every quarter.</p></li>
+      <li><h3>Coinbase <span class="x">×</span> Nike Melbourne Marathon</h3><span class="val">$360K · B2B2C Customer Acquisition</span><p>Originated the partnership and co-developed an industry-first NFT integration with Coinbase, connecting the brand with a new consumer audience through a technology-enabled acquisition campaign.</p></li>
+      <li><h3>NTT DATA <span class="x">×</span> BMW</h3><span class="val">€2.8M · Technology Integration <span class="x">&amp;</span> Commercialisation</span><p>Originated and led the partnership from initial conversations through C-level negotiations to signature, bringing real-time data and AI-driven analytics into BMW Golf's customer experience.</p></li>
+      <li><h3>Grab <span class="x">×</span> World Rugby</h3><span class="val">B2B2C · Audience Reach <span class="x">&amp;</span> Shared Value</span><p>Structured a Singapore-market partnership connecting Grab's consumer ecosystem with World Rugby's event audience, designed to extend audience reach and create value for both organisations.</p></li>
+      <li><h3>HYROX APAC</h3><span class="val">0<span class="x">→</span>1 · Regional Commercial Development</span><p>Played a central role in developing HYROX's APAC commercial proposition from the ground up, shaping priority categories and the regional route to market, and securing its first regional partnerships.</p></li>
+      <li><h3>BMW Golf</h3><span class="val">€2.5M Annual Revenue Target · P&amp;L Ownership</span><p>Owned the commercial P&amp;L and exceeded the annual revenue target, leading a team that grew from two to more than ten during tournament peaks.</p></li>
     </ul>
   </section>
 
   
 
+  <section class="wrap" id="fintech">
+    <div class="head"><h2>Why fintech&nbsp;<span class="x">&amp;</span> what's next</h2></div>
+    <div class="why">
+      <p>Having lived across Europe, the US and Asia, I've experienced first-hand how fintech makes life across borders easier. In Southeast Asia, I've seen its potential to bring financial services to underserved communities. Working with fintech businesses over the years has only deepened my interest in the industry.</p>
+      <p>I'm looking to join an ambitious fintech or technology business, bringing my commercial experience to grow its presence across APAC. I want to shape commercial direction, build meaningful partnerships and take ownership and succeed together.</p>
+    </div>
+  </section>
 
   <section class="wrap" id="personal">
-    <div class="head"><div class="label">Personal</div><h2>Off the clock</h2></div>
-    <ul class="personal">
-      <li><span class="label">Basketball</span><span>Four years as a professional in Germany's ProA and ProB leagues, from 2013 to 2017, including time as team captain. Before that, a basketball scholarship in the US, where I graduated cum laude. It's where I learned discipline, resilience and how to lead a cross-cultural team under pressure.</span></li>
-      <li><span class="label">Endurance</span><span>Long-distance triathlete and HYROX Pro competitor. HYROX is also a sport I've worked on: I secured its first partnerships in APAC.</span></li>
-      <li><span class="label">Outdoors</span><span>I love the mountains. Certified sailor and avid golfer.</span></li>
-      <li><span class="label">AI</span><span>I build my own AI agents for research, writing, scheduling and workflow automation. This page, and the card that brought you here, were built with AI too.</span></li>
-      <li><span class="label">Also</span><span>History buff.</span></li>
-      <li><span class="label">Lived in</span><span>Germany, the US and Singapore</span></li>
-      <li><span class="label">Languages</span><span>English and German</span></li>
+    <div class="head"><h2>Beyond work</h2></div>
+    <ul class="personal prose">
+      <li><b>Basketball:</b> Took me from Germany to a US college scholarship, graduating cum laude, then back to play professionally for various teams including German Bundesliga.</li>
+      <li><b>Training:</b> I was at one of the first HYROX events ever in Hamburg in 2017. Since then, I've competed in long-distance triathlon and HYROX Pro. I still enjoy type 3 fun.</li>
+      <li><b>AI &amp; building:</b> I build applications, AI agents and connected workflows that I use across work, training and everyday life. I like turning ideas into things that actually work. This website and the unusual card that brought you here were built with AI, too.</li>
+      <li><b>Beyond that:</b> I love the mountains and I am a certified sailor. I'm bad at golf, but really enjoy it. History is where I nerd out. I've called Germany, the US and Singapore home, and speak German and English fluently.</li>
     </ul>
   </section>
 </main>
 
 <section class="looking" id="contact">
   <div class="wrap">
-    <div class="label">What's next</div>
-    <h2>Brand and strategic partnerships in fintech, crypto, tech and beyond.</h2>
-    <p>Director level, based in Singapore with an APAC remit. Whether we met at Singapore FinTech Festival or someone sent you this page, I'd be glad to keep the conversation going.</p>
+    <h2>Let's connect</h2>
+    <p>If we met at Singapore FinTech Festival, or someone shared this page with you, I'd love to continue the conversation.</p>
+    <p>Whether it's a potential opportunity, an introduction or simply exchanging ideas, please reach out.</p>
     <div class="actions">
       <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
       <a class="btn line" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
@@ -224,9 +229,8 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
       
     </div>
     <div class="contact-lines">
-      <a href="tel:+6589506244">+65 8950 6244</a>
-      <a href="mailto:lukasvweigel@gmail.com">lukasvweigel@gmail.com</a>
-      <span>linkedin.com/in/lukas-v-weigel · full career history</span>
+      <span>Singapore based · <a href="tel:+6589506244">+65 8950 6244</a> · <a href="mailto:lukasvweigel@gmail.com">lukasvweigel@gmail.com</a></span>
+      <a href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">Full career history</a>
     </div>
   </div>
 </section>
