@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lukas Weigel · Strategic Partnerships &amp; Commercial Growth · APAC</title>
-<meta name="description" content="Strategic Partnerships &amp; Commercial Growth · APAC. Former professional basketball player, commercial partnerships leader and curious builder, based in Singapore. Partnerships with Coinbase, NTT DATA, Grab and HYROX.">
-<meta property="og:title" content="Lukas Weigel · Strategic Partnerships &amp; Commercial Growth · APAC">
+<title>Lukas Weigel · Commercial Growth &amp; Strategic Partnerships</title>
+<meta name="description" content="Commercial Growth &amp; Strategic Partnerships. Former professional basketball player, commercial partnerships leader and curious builder, based in Singapore. Partnerships with Coinbase, NTT DATA, Grab and HYROX.">
+<meta property="og:title" content="Lukas Weigel · Commercial Growth &amp; Strategic Partnerships">
 <meta property="og:description" content="Former professional basketball player, commercial partnerships leader and curious builder. Partnerships with Coinbase, NTT DATA, Grab and HYROX.">
 <meta property="og:image" content="https://lukas.wynarc.com/og.jpg">
 <meta property="og:url" content="https://lukas.wynarc.com/">
@@ -69,9 +69,14 @@ p { margin: 0; max-width: 64ch; }
 .hero .arcs { --r: clamp(80px, 16vw, 230px); position: absolute; top: 0; right: calc(var(--r) * -0.688); width: calc(var(--r) * 2.085); height: auto; pointer-events: none; }
 .portrait img { position: relative; width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); mask-image: linear-gradient(to bottom, #000 82%, transparent 100%); }
 @media (max-width: 720px) {
-  /* One column: photo, name, then phone, email and buttons straight away, then the summary */
+  /* One column: top line, photo, name, then the buttons straight away, then the summary */
   .hero .wrap { grid-template-columns: 1fr; padding-top: max(24px, env(safe-area-inset-top)); padding-bottom: 40px; gap: 18px 0; }
   .hero .copy { display: contents; }
+  /* Top line above the photo; max-width wraps it after "&" so it stays clear of the arcs in the corner */
+  .hero .copy > .label:not(.sub) { order: -2; max-width: 15rem; }
+  /* Bigger arcs on phones: the outer arc reaches left to about x = 240 px on a 390 px screen and shrinks on
+     narrower phones, so it always clears the end of the top line's first line ("…PARTNERSHIPS &") */
+  .hero .arcs { --r: clamp(80px, calc((100vw - 230px) * 0.68), 120px); }
   .portrait { order: -1; justify-self: start; max-width: 270px; margin-top: 0; margin-bottom: -14px; }
   .hero .summary { order: 2; border-top: 0; padding-block: 4px 0; }
   .hero .lede { font-size: 1.1rem; }
@@ -136,6 +141,18 @@ h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.15; }
 .contact-lines { display: grid; gap: 4px; font-size: 0.92rem; color: var(--sand); }
 .contact-lines a { color: var(--stone); text-decoration-color: var(--pine); text-underline-offset: 3px; }
 footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 0.78rem; color: var(--muted); }
+/* Phones: tighter gaps between sections (after the rules above so it overrides them) */
+@media (max-width: 720px) {
+  section { padding-block: 40px 0; }
+  .head { margin-bottom: 18px; }
+  .looking { margin-top: 48px; }
+  .looking .wrap { padding-block: 40px 44px; }
+}
+/* Phones: the four buttons as an even 2 x 2 grid instead of three in a row and one left over */
+@media (max-width: 480px) {
+  .actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .actions .btn { justify-content: center; }
+}
 @media (prefers-reduced-motion: no-preference) { .portrait img { animation: rise 0.7s ease-out both; } @keyframes rise { from { transform: translateY(12px); opacity: 0.6; } to { transform: none; opacity: 1; } } }
 </style>
 </head>
@@ -152,15 +169,15 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
   </svg>
   <div class="wrap">
     <div class="copy">
-      <div class="label">Strategic Partnerships &amp; Commercial Growth · APAC</div>
+      <div class="label">Commercial Growth &amp; Strategic Partnerships</div>
       <h1>Lukas Weigel</h1>
       <div class="label sub"><span>Singapore based</span><span class="bar" aria-hidden="true"></span><span>No EP required</span></div>
       <p class="tagline"><span>Former professional basketball player.</span> <span>Commercial partnerships leader.</span> <span>Curious builder.</span></p>
       <div class="actions">
+        <a class="btn solid" href="cv/">CV</a>
         <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
-        <a class="btn line" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn line" href="lukas-weigel.vcf" download>Save contact</a>
-        
+        <a class="btn solid" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn solid" href="lukas-weigel.vcf" download>Save contact</a>
         
       </div>
     </div>
@@ -223,14 +240,14 @@ footer { padding-block: 22px max(28px, env(safe-area-inset-bottom)); font-size: 
     <p>I'm exploring opportunities in strategic partnerships, business development and commercial growth with ambitious fintech and technology businesses across APAC.</p>
     <p>If we met at Singapore FinTech Festival, or someone shared this page with you, I'd love to continue the conversation. Whether it's a potential opportunity, an introduction or simply exchanging ideas, please reach out.</p>
     <div class="actions">
+      <a class="btn solid" href="cv/">CV</a>
       <a class="btn solid" href="mailto:lukasvweigel@gmail.com?subject=Hello%20from%20SFF">Email me</a>
-      <a class="btn line" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn line" href="lukas-weigel.vcf" download>Save contact</a>
+      <a class="btn solid" href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn solid" href="lukas-weigel.vcf" download>Save contact</a>
       
     </div>
     <div class="contact-lines">
       <span>Singapore based · <a href="tel:+6589506244">+65 8950 6244</a> · <a href="mailto:lukasvweigel@gmail.com">lukasvweigel@gmail.com</a></span>
-      <a href="https://www.linkedin.com/in/lukas-v-weigel" target="_blank" rel="noopener">Full career history</a>
     </div>
   </div>
 </section>
