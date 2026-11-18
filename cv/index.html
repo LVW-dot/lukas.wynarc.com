@@ -84,32 +84,35 @@ footer a { color: var(--ink); }
   .top .arcs { --r: clamp(80px, calc((100vw - 230px) * 0.68), 120px); }
 }
 
-/* Print or "Save as PDF": plain black on white, no buttons or arcs */
+/* Print or "Save as PDF": plain black on white, no buttons or arcs. Sized so the CV with four roles stays on two A4 pages. */
 @media print {
-  @page { size: A4; margin: 12mm 13mm 13mm; }
-  body { background: #fff; color: #000; font-size: 9.5pt; line-height: 1.4; }
+  @page { size: A4; margin: 11mm 13mm 11mm; }
+  body { background: #fff; color: #000; font-size: 9.2pt; line-height: 1.35; }
   .top { background: #fff; color: #000; }
-  .top .wrap { padding: 0 0 6pt; gap: 4pt; }
+  .top .wrap { padding: 0 0 5pt; gap: 3pt; }
   .top .arcs, .back, .actions, footer { display: none; }
   .top .label, .top .sub, .reach a { color: #000; }
   .top .sub .bar { background: #000; }
-  .top h1 { font-size: 24pt; }
+  .top h1 { font-size: 22pt; }
+  .reach { margin-top: 2pt; }
   .reach a { border: 0; }
   .wrap { max-width: none; padding: 0; }
   main { padding: 0; }
-  section { padding-top: 10pt; break-inside: auto; }
-  section > h2 { font-size: 12pt; margin-bottom: 8pt; padding-bottom: 3pt; border-color: #000; }
-  .summary p { font-size: 9.5pt; }
-  .skills { gap: 4pt; }
+  section { padding-top: 8pt; break-inside: auto; }
+  section > h2 { font-size: 11.5pt; margin-bottom: 6pt; padding-bottom: 2pt; border-color: #000; }
+  .summary p { font-size: 9.2pt; }
+  .skills { gap: 3pt; }
   .skills li { grid-template-columns: 52mm 1fr; gap: 0 10pt; }
-  .role .intro, .role ul { margin-top: 5pt; }
+  .role .intro, .role ul { margin-top: 4pt; }
   .role .rh, .role .intro { break-after: avoid; }
   .role li, .skills li, .edu { break-inside: avoid; }
-  .edu h3 { font-size: 10.5pt; }
-  .edu .when { font-size: 9.5pt; }
-  .role ul { gap: 4pt; }
-  .role + .role { margin-top: 10pt; padding-top: 8pt; }
-  .role h3 { font-size: 10.5pt; }
+  .edu h3 { font-size: 10pt; }
+  .edu .when { font-size: 9.2pt; }
+  .edu + .edu { margin-top: 5pt; }
+  .extra p + p { margin-top: 3pt; }
+  .role ul { gap: 3pt; }
+  .role + .role { margin-top: 7pt; padding-top: 6pt; }
+  .role h3 { font-size: 10pt; }
   .role .when, .role .org, .skills li span, .edu .when, .edu .org { color: #333; }
   .role li::marker { color: #000; }
 }
@@ -153,14 +156,24 @@ footer a { color: var(--ink); }
     <h2>Experience</h2>
 
     <div class="role">
+      <div class="rh"><h3>Founder &amp; Director</h3><span class="when">Aug 2026 – Present</span><span class="org">Wynarc Pte. Ltd., Singapore</span></div>
+      <p class="intro"><b>Run an independent commercial advisory</b> working directly with the founder-CEOs of three clients in consumer brands and AI software on market entry, partnerships and commercial growth.</p>
+      <ul>
+        <li><b>Designed an AI software business's first market entry outside Germany,</b> defining target segments, offer and a diagnostic-to-paid-pilot model, with first demos executed.</li>
+        <li><b>Lead go-to-market strategy, business development and partnerships</b> for a Singapore meal-subscription business's planned AI kitchen operating system, shaping the commercial proposition around its proprietary data, building the partner ecosystem and structuring trial-client onboarding.</li>
+        <li><b>Set commercial strategy and go-to-market for a functional hydration brand's Singapore entry,</b> defining routes to market, launch pricing and a repeatable B2B2C model with membership businesses.</li>
+      </ul>
+    </div>
+
+    <div class="role">
       <div class="rh"><h3>Associate Director, Strategic Partnerships</h3><span class="when">Oct 2021 – Jun 2026</span><span class="org">Infront Pan-Asia Pte. Ltd., Singapore</span></div>
-      <p class="intro"><b>Led commercial partnership development across APAC,</b> owning approximately 30 brand accounts spanning fintech, banking, crypto, cloud and consumer technology and growing Infront's exclusive rights-holder portfolio from one to eight.</p>
+      <p class="intro"><b>Led commercial partnership development across APAC,</b> owning about 30 brand accounts across fintech, banking, crypto and technology and growing the exclusive rights-holder portfolio from one to eight.</p>
       <ul>
         <li><b>Originated and closed an industry-first Coinbase partnership with the Nike Melbourne Marathon,</b> conceiving the NFT integration behind a USD 360K deal that lifted new user acquisition 10x.</li>
-        <li><b>Secured a three-year, USD 350K title partnership with Cigna Healthcare for HYROX,</b> structuring it from proposition through execution; also structured a one-year Grab partnership with World Rugby for the Singapore market.</li>
+        <li><b>Secured a three-year, USD 350K title partnership with Cigna Healthcare for HYROX,</b> and structured a one-year Grab partnership with World Rugby for the Singapore market.</li>
         <li><b>Took HYROX's APAC commercial proposition from zero to one,</b> developing the regional go-to-market approach and priority categories and securing its first regional partnerships.</li>
         <li><b>Served as Global Category Lead for Crypto and Blockchain</b> and founding member of Infront's Web3 &amp; Digital Assets Taskforce, advising international teams on propositions and partnership opportunities.</li>
-        <li><b>Developed a partnership proposition between HYROX and stablecoin neobank UR,</b> shaping a planned integration of digital wallets, cross-border payments and rewards into the HYROX ID programme; proposal stage, with alignment in principle from both parties.</li>
+        <li><b>Developed a partnership proposition between HYROX and stablecoin neobank UR</b> to integrate digital wallets, cross-border payments and rewards; proposal stage, agreed in principle by both parties.</li>
       </ul>
     </div>
 
@@ -171,8 +184,7 @@ footer a { color: var(--ink); }
         <li><b>Owned P&amp;L responsibility for the account and exceeded a €2.5M annual revenue target</b> through partnership strategy, multi-market activation and integrated account delivery.</li>
         <li><b>Structured and closed a five-year, €2.8M strategic partnership with NTT DATA,</b> the largest BMW Golfsport partnership to date, originating it and leading C-level negotiations through to signature, and integrating real-time data and AI-driven analytics into the client experience.</li>
         <li><b>Managed premium brand partner relationships including Julius Bär, Emirates and Rolex,</b> developing joint marketing and activation programmes alongside BMW.</li>
-        <li><b>Led decentralised international teams across marketing, data and delivery,</b> scaling the working group from 2 to 10+ through peak tournament periods.</li>
-        <li><b>Introduced data-driven account management,</b> using audience mapping, ROI tracking and engagement analytics to guide partner strategy.</li>
+        <li><b>Led international marketing, data and delivery teams,</b> scaling from 2 to 10+ at peak periods.</li>
       </ul>
     </div>
 
